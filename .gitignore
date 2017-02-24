@@ -15,3 +15,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+/public/uploads
+/public/assetes
+
+.DS_Store
+
