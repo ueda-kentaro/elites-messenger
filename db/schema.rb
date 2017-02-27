@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20170226141502) do
 
   create_table "timelines", force: :cascade do |t|
     t.integer  "user_id"
-    t.text     "messege"
+    t.text     "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

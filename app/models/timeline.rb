@@ -1,3 +1,6 @@
 class Timeline < ActiveRecord::Base
-    belong_to :user
+    belongs_to :user
+
+      validates :message, presence: true, allow_blank: false
+
 end
