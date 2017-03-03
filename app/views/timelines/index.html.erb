@@ -7,7 +7,6 @@
                     編集中
                 <% elsif @reply_timeline %>
                     <%= @reply_timeline.user.name %>の｢<%= truncate(@reply_timeline.message, length: 7) %>｣に返信
-                    
                 <% end %>
                 <br/>
                 <%= f.text_area :message, class:'form-control', row:3 %>
@@ -29,6 +28,7 @@
                     <%= f.submit 'Post', class:'btn btn-primary' %>
                 </div>
             </div>
+            <%= f.hidden_field :reply_id, value: @reply_timeline.id if @reply_timeline %>
         <% end %>
     </div>
     <div class="user_filter">
@@ -64,4 +64,3 @@
         <% end %>
     </div>
 </div>
-

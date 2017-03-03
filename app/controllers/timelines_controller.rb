@@ -30,7 +30,13 @@ class TimelinesController < ApplicationController
       flash[:alert] = timeline.errors.full_messages
     end
     redirect_to action: :index
-  end  
+  end
+  
+  def destroy
+    timeline =Timeline.find(params[:id])
+    timeline.destroy
+    redirect_to action: :index
+  end
   
   def filter_by_user
     if params[:filter_user_id].present?
@@ -42,6 +48,6 @@ class TimelinesController < ApplicationController
   
   private
   def input_message_param
-    params.require(:timeline).permit(:message,:reply_id)
+    params.require(:timeline).permit(:message, :reply_id)
   end
 end
