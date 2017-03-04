@@ -25,7 +25,8 @@
                             <%=button_tag 'Cancel',class: 'btn btn-default' %>
                         <% end %>
                     <% end %>
-                    <%= f.submit 'Post', class:'btn btn-primary' %>
+                    <%= f.submit 'Post', class:'btn btn-primary post' %>
+                    <%= f.submit 'AjaxPost', class:'btn btn-primary ajaxpost'%>
                 </div>
             </div>
             <%= f.hidden_field :reply_id, value: @reply_timeline.id if @reply_timeline %>
@@ -45,21 +46,6 @@
     
     <div class="timeline">
         <% @timeline.each do |t| %>
-            <div class="per <%= 'mine' if t.user.id == current_user.id%>">
-                <p class="icon">
-                    <% if t.user.thumbnail? %>
-                        <%= image_tag t.user.thumbnail.url %>
-                    <% else %>
-                        NO IMAGE
-                    <% end %>
-                </p>
-                <%= simple_format t.message, class: 'message' %>
-                <% if mypost?(t) %>
-                  <%= link_to root_path(id: t.id, message: t.message) do %>
-                    <%= button_tag 'Edit', class: 'btn btn-info' %>
-                  <% end %>
-                <% end %>
-            </div>
             <%= render 'timelines/timeline', t: t%>
         <% end %>
     </div>
