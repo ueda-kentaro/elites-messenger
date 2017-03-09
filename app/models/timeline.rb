@@ -2,7 +2,7 @@ class Timeline < ActiveRecord::Base
     belongs_to :user
     
     has_many :replies, class_name:'Timeline', foreign_key: 'reply_id', dependent: :destroy
-
+    has_many :likes
     validates :message, length:{ maximum: 140}, presence: true, allow_blank: false
     
     scope :user_filter, -> user_id do

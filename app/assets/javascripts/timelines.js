@@ -10,9 +10,8 @@ $(function(){
     if ( status == 'success') {
       var json = JSON.parse(data.responseText);
       if (json.timeline){
-      $('div.alert').empty();
-      $('div.timeline').prepend(json.timeline);
-      }
+        $('div.timeline').prepend(json.timeline);
+        }
         else if (json.error){
             $('div.alert').empty();
             for( var i in json.error) {
