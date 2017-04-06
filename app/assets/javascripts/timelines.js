@@ -11,9 +11,10 @@ $(function(){
       var json = JSON.parse(data.responseText);
       if (json.timeline){
         $('div.timeline').prepend(json.timeline);
+          $('div.alert').empty();
         }
         else if (json.error){
-            $('div.alert').empty();
+          $('div.alert').empty();
             for( var i in json.error) {
                 $('div.alert').append($('<p>' + json.error[i] + '</p>'));
             } 
